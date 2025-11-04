@@ -1,0 +1,146 @@
+.readme-preview h1,
+.readme-preview h2,
+.readme-preview h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.readme-preview h1:first-child,
+.readme-preview h2:first-child,
+.readme-preview h3:first-child {
+  margin-top: 0;
+}
+
+.readme-preview h1 {
+  font-size: 2em;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.readme-preview h2 {
+  font-size: 1.5em;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.25rem;
+}
+
+.readme-preview h3 {
+  font-size: 1.25em;
+}
+
+.readme-preview p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.readme-preview ul,
+.readme-preview ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.readme-preview li {
+  margin-bottom: 0.25rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.readme-preview li.task-done {
+  color: var(--accent-success);
+}
+
+.readme-preview li.task-pending {
+  color: var(--text-muted);
+}
+
+.readme-preview li.numbered {
+  color: var(--text-secondary);
+}
+
+.readme-preview li.sub-item {
+  margin-left: 1.5rem;
+  color: var(--text-secondary);
+  list-style-type: disc;
+}
+
+.readme-preview code {
+  background: var(--bg-primary);
+  padding: 0.125rem 0.25rem;
+  border-radius: var(--radius-sm);
+  font-family: 'Courier New', monospace;
+  font-size: 0.875em;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.readme-preview pre {
+  background: var(--bg-primary);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.readme-preview pre code {
+  background: none;
+  padding: 0;
+  border: none;
+  font-size: 0.875em;
+  line-height: 1.4;
+}
+
+.readme-preview img {
+  max-width: 100%;
+  height: auto;
+  margin: 0.5rem 0;
+}
+
+.readme-preview a {
+  color: var(--accent-info);
+  text-decoration: none;
+}
+
+.readme-preview a:hover {
+  text-decoration: underline;
+  color: var(--accent-info-hover);
+}
+
+.readme-preview blockquote {
+  padding: 0 1rem;
+  color: var(--text-muted);
+  border-left: 4px solid var(--border-color);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.readme-preview table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.readme-preview th,
+.readme-preview td {
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-sm);
+  text-align: left;
+  color: var(--text-secondary);
+}
+
+.readme-preview th {
+  background-color: var(--bg-primary);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.readme-preview > *:first-child {
+  margin-top: 0;
+}
+
+.readme-preview > *:last-child {
+  margin-bottom: 0;
+}

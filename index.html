@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>README Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout/containers.css">
+    <link rel="stylesheet" href="css/layout/grid.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/form.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/tabs.css">
+    <link rel="stylesheet" href="css/components/preview.css">
+    <link rel="stylesheet" href="css/components/checkbox.css">
+    <link rel="stylesheet" href="css/components/inputs.css">
+    <link rel="stylesheet" href="css/components/tech-tabs.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>README Generator</h1>
+            <p>Generate a professional README.md for your project</p>
+        </header>
+
+        <div class="main-content">
+            <div class="form-container">
+                <form id="readmeForm">
+                    <section class="form-section">
+                        <h2>Basic Information</h2>
+                        <div class="form-group">
+                            <label for="projectName">Project Name:</label>
+                            <input type="text" id="projectName" class="input-field" placeholder="My Awesome Project"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="githubUser">GitHub Username:</label>
+                            <input type="text" id="githubUser" class="input-field" placeholder="your-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="repoName">Repository Name:</label>
+                            <input type="text" id="repoName" class="input-field" placeholder="my-repo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectDescription">Project Description:</label>
+                            <textarea id="projectDescription" class="textarea-field"
+                                placeholder="A brief description of what your project does..." rows="3"></textarea>
+                        </div>
+                    </section>
+
+                    <section class="form-section">
+                        <h2>Badges</h2>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="badgeContributors" class="checkbox-input" checked>
+                                Contributors</label>
+                            <label><input type="checkbox" id="badgeForks" class="checkbox-input" checked> Forks</label>
+                            <label><input type="checkbox" id="badgeStars" class="checkbox-input" checked> Stars</label>
+                            <label><input type="checkbox" id="badgeIssues" class="checkbox-input" checked>
+                                Issues</label>
+                            <label><input type="checkbox" id="badgeLicense" class="checkbox-input" checked>
+                                License</label>
+                        </div>
+                    </section>
+
+                    <section class="form-section">
+                        <h2>Technologies</h2>
+                        <div class="tech-tabs">
+                            <button type="button" class="tab-button active" data-tab="languages">Languages</button>
+                            <button type="button" class="tab-button" data-tab="frameworks">Frameworks</button>
+                            <button type="button" class="tab-button" data-tab="tools">Tools</button>
+                            <button type="button" class="tab-button" data-tab="platforms">Platforms</button>
+                        </div>
+
+                        <div class="tech-content">
+                            <div id="languagesTab" class="tech-tab-content active">
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" id="techHtml" class="checkbox-input tech-checkbox"
+                                            checked> HTML5</label>
+                                    <label><input type="checkbox" id="techCss" class="checkbox-input tech-checkbox"
+                                            checked> CSS3</label>
+                                    <label><input type="checkbox" id="techJs" class="checkbox-input tech-checkbox"
+                                            checked> JavaScript</label>
+                                    <label><input type="checkbox" id="techTypeScript"
+                                            class="checkbox-input tech-checkbox"> TypeScript</label>
+                                    <label><input type="checkbox" id="techJava" class="checkbox-input tech-checkbox">
+                                        Java</label>
+                                    <label><input type="checkbox" id="techPython" class="checkbox-input tech-checkbox">
+                                        Python</label>
+                                    <label><input type="checkbox" id="techPhp" class="checkbox-input tech-checkbox">
+                                        PHP</label>
+                                    <label><input type="checkbox" id="techBatch" class="checkbox-input tech-checkbox">
+                                        Batch</label>
+                                    <label><input type="checkbox" id="techPowerShell"
+                                            class="checkbox-input tech-checkbox"> PowerShell</label>
+                                    <label><input type="checkbox" id="techShell" class="checkbox-input tech-checkbox">
+                                        Shell</label>
+                                </div>
+                            </div>
+
+                            <div id="frameworksTab" class="tech-tab-content">
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" id="techReact" class="checkbox-input tech-checkbox">
+                                        React</label>
+                                    <label><input type="checkbox" id="techNextJs" class="checkbox-input tech-checkbox">
+                                        Next.js</label>
+                                    <label><input type="checkbox" id="techVue" class="checkbox-input tech-checkbox">
+                                        Vue.js</label>
+                                    <label><input type="checkbox" id="techAngular" class="checkbox-input tech-checkbox">
+                                        Angular</label>
+                                    <label><input type="checkbox" id="techAstro" class="checkbox-input tech-checkbox">
+                                        Astro</label>
+                                    <label><input type="checkbox" id="techDjango" class="checkbox-input tech-checkbox">
+                                        Django</label>
+                                    <label><input type="checkbox" id="techNode" class="checkbox-input tech-checkbox">
+                                        Node.js</label>
+                                </div>
+                            </div>
+
+                            <div id="toolsTab" class="tech-tab-content">
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" id="techGit" class="checkbox-input tech-checkbox">
+                                        Git</label>
+                                    <label><input type="checkbox" id="techDocker" class="checkbox-input tech-checkbox">
+                                        Docker</label>
+                                    <label><input type="checkbox" id="techWebpack" class="checkbox-input tech-checkbox">
+                                        Webpack</label>
+                                    <label><input type="checkbox" id="techVite" class="checkbox-input tech-checkbox">
+                                        Vite</label>
+                                </div>
+                            </div>
+
+                            <div id="platformsTab" class="tech-tab-content">
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" id="techVercel" class="checkbox-input tech-checkbox">
+                                        Vercel</label>
+                                    <label><input type="checkbox" id="techNetlify" class="checkbox-input tech-checkbox">
+                                        Netlify</label>
+                                    <label><input type="checkbox" id="techHeroku" class="checkbox-input tech-checkbox">
+                                        Heroku</label>
+                                    <label><input type="checkbox" id="techAws" class="checkbox-input tech-checkbox">
+                                        AWS</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="javaSubcategories" class="subcategory-section" style="display: none;">
+                            <h4>Java Tools & Frameworks</h4>
+                            <div class="form-group">
+                                <label for="javaVersion">Java Version:</label>
+                                <select id="javaVersion" class="select-field">
+                                    <option value="8">Java 8</option>
+                                    <option value="11">Java 11</option>
+                                    <option value="17">Java 17</option>
+                                    <option value="21" selected>Java 21</option>
+                                    <option value="22">Java 22</option>
+                                    <option value="23">Java 23</option>
+                                    <option value="24">Java 24</option>
+                                    <option value="25">Java 25</option>
+                                </select>
+                            </div>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="techMaven" class="checkbox-input tech-checkbox">
+                                    Maven</label>
+                                <label><input type="checkbox" id="techGradle" class="checkbox-input tech-checkbox">
+                                    Gradle</label>
+                                <label><input type="checkbox" id="techJavaFx" class="checkbox-input tech-checkbox">
+                                    JavaFX</label>
+                            </div>
+                        </div>
+
+                        <div id="pythonSubcategories" class="subcategory-section" style="display: none;">
+                            <h4>Python GUI Frameworks</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="techTkinter" class="checkbox-input tech-checkbox">
+                                    Tkinter</label>
+                            </div>
+                        </div>
+
+                        <div id="jsSubcategories" class="subcategory-section" style="display: none;">
+                            <h4>JavaScript Extensions</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="techJsx" class="checkbox-input tech-checkbox">
+                                    JSX</label>
+                            </div>
+                        </div>
+
+                        <div id="tsSubcategories" class="subcategory-section" style="display: none;">
+                            <h4>TypeScript Extensions</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="techTsx" class="checkbox-input tech-checkbox">
+                                    TSX</label>
+                            </div>
+                        </div>
+
+                        <div id="powershellSubcategories" class="subcategory-section" style="display: none;">
+                            <h4>PowerShell Frameworks</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" id="techWindowsForms"
+                                        class="checkbox-input tech-checkbox"> Windows Forms</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectSize">Project Size:</label>
+                            <select id="projectSize" class="select-field">
+                                <option value="<1MB">&lt;1MB</option>
+                                <option value="1-5MB">1-5MB</option>
+                                <option value="5-10MB">5-10MB</option>
+                                <option value=">10MB">&gt;10MB</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <section class="form-section">
+                        <h2>Sections to Include</h2>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="sectionAbout" class="checkbox-input" checked> About The
+                                Project</label>
+                            <label><input type="checkbox" id="sectionFeatures" class="checkbox-input" checked>
+                                Features</label>
+                            <label><input type="checkbox" id="sectionBuiltWith" class="checkbox-input" checked> Built
+                                With</label>
+                            <label><input type="checkbox" id="sectionGettingStarted" class="checkbox-input" checked>
+                                Getting Started</label>
+                            <label><input type="checkbox" id="sectionUsage" class="checkbox-input" checked>
+                                Usage</label>
+                            <label><input type="checkbox" id="sectionRoadmap" class="checkbox-input" checked>
+                                Roadmap</label>
+                            <label><input type="checkbox" id="sectionContributing" class="checkbox-input" checked>
+                                Contributing</label>
+                            <label><input type="checkbox" id="sectionLicense" class="checkbox-input" checked>
+                                License</label>
+                            <label><input type="checkbox" id="sectionAcknowledgments" class="checkbox-input" checked>
+                                Acknowledgments</label>
+                        </div>
+                    </section>
+
+                    <section class="form-section">
+                        <h2>Features</h2>
+                        <div id="featuresContainer">
+                            <div class="feature-item">
+                                <input type="text" placeholder="Describe a feature..."
+                                    class="feature-input input-field">
+                                <button type="button" class="btn btn-danger remove-feature">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" id="addFeature" class="btn btn-secondary">Add Feature</button>
+                    </section>
+
+                    <section class="form-section">
+                        <h2>Roadmap</h2>
+                        <div id="roadmapContainer">
+                            <div class="roadmap-item">
+                                <select class="roadmap-status select-field">
+                                    <option value="pending">Pending</option>
+                                    <option value="completed">Completed</option>
+                                </select>
+                                <input type="text" placeholder="Describe a roadmap task..."
+                                    class="roadmap-input input-field">
+                                <button type="button" class="btn btn-danger remove-roadmap">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" id="addRoadmap" class="btn btn-secondary">Add Roadmap Item</button>
+                    </section>
+
+                    <section class="form-section">
+                        <h2>License</h2>
+                        <div class="form-group">
+                            <label for="licenseType">License Type:</label>
+                            <select id="licenseType" class="select-field">
+                                <option value="MIT">MIT License</option>
+                                <option value="Apache">Apache License 2.0</option>
+                                <option value="GPL">GNU GPL v3</option>
+                                <option value="BSD">BSD 3-Clause</option>
+                                <option value="ISC">ISC License</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Generate README</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="preview-container">
+                <div class="preview-tabs">
+                    <button type="button" id="rawTab" class="tab-button active">Raw</button>
+                    <button type="button" id="previewTab" class="tab-button">Preview</button>
+                </div>
+                <div class="preview-content">
+                    <div id="rawOutput" class="output-section active">
+                        <div class="output-header">
+                            <h3>Your README.md</h3>
+                            <button id="copyReadme" class="btn btn-secondary copy-btn">Copy README</button>
+                        </div>
+                        <div class="readme-raw">
+                            <pre id="readmeOutput"></pre>
+                        </div>
+                    </div>
+                    <div id="previewOutput" class="output-section">
+                        <div class="output-header">
+                            <h3>Preview</h3>
+                        </div>
+                        <div class="readme-preview" id="readmePreview"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

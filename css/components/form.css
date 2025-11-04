@@ -1,0 +1,73 @@
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.form-group input:not(.input-field):not(.checkbox-input),
+.form-group textarea:not(.textarea-field),
+.form-group select:not(.select-field) {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.form-group input:not(.input-field):not(.checkbox-input):focus,
+.form-group textarea:not(.textarea-field):focus,
+.form-group select:not(.select-field):focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group input:not(.input-field)::placeholder,
+.form-group textarea:not(.textarea-field)::placeholder {
+  color: var(--text-muted);
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.checkbox-group label:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.checkbox-group input[type="checkbox"]:not(.checkbox-input) {
+  width: auto;
+  margin: 0;
+  accent-color: var(--accent-primary);
+}
+
+.feature-input,
+.roadmap-input {
+  flex: 1;
+}
+
+.roadmap-status {
+  width: 150px;
+  flex-shrink: 0;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
