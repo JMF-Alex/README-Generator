@@ -36,6 +36,17 @@
   color: var(--text-secondary);
 }
 
+.readme-preview p[align="center"] {
+  text-align: center !important;
+  display: block;
+  width: 100%;
+}
+
+.readme-preview p[align="center"] a {
+  display: inline-block;
+  margin: 2px;
+}
+
 .readme-preview ul,
 .readme-preview ol {
   margin-bottom: 1rem;

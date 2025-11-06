@@ -31,8 +31,6 @@ class ReadmeGenerator {
         document.addEventListener('click', this.handleTechTabs.bind(this));
         document.addEventListener('change', this.handleTechSubcategories.bind(this));
         document.addEventListener('change', this.handleJavaVersionChange.bind(this));
-
-
     }
 
     setupDynamicItems() {
@@ -87,6 +85,9 @@ class ReadmeGenerator {
                 break;
             case 'techPowerShell':
                 this.toggleSubcategory('powershellSubcategories', isChecked);
+                break;
+            case 'techCss':
+                this.toggleSubcategory('cssSubcategories', isChecked);
                 break;
         }
 
@@ -236,7 +237,9 @@ class ReadmeGenerator {
             tkinter: getCheckedValue('techTkinter'),
             jsx: getCheckedValue('techJsx'),
             tsx: getCheckedValue('techTsx'),
-            windowsForms: getCheckedValue('techWindowsForms')
+            windowsForms: getCheckedValue('techWindowsForms'),
+            scss: getCheckedValue('techScss'),
+            postCss: getCheckedValue('techPostCss')
         };
     }
 
@@ -301,8 +304,6 @@ class ReadmeGenerator {
     buildBadgesSection(data) {
         if (!this.hasBadges(data.badges)) return '';
 
-        let content = '<p align="center">';
-
         const badgeConfigs = {
             contributors: `<a href="https://github.com/${data.githubUser}/${data.repoName}/graphs/contributors"><img src="https://img.shields.io/github/contributors/${data.githubUser}/${data.repoName}?style=for-the-badge" alt="Contributors"></a>`,
             forks: `<a href="https://github.com/${data.githubUser}/${data.repoName}/network/members"><img src="https://img.shields.io/github/forks/${data.githubUser}/${data.repoName}?style=for-the-badge" alt="Forks"></a>`,
@@ -311,23 +312,21 @@ class ReadmeGenerator {
             license: `<a href="https://github.com/${data.githubUser}/${data.repoName}/blob/main/LICENSE"><img src="https://img.shields.io/github/license/${data.githubUser}/${data.repoName}?style=for-the-badge" alt="License"></a>`
         };
 
-        Object.keys(badgeConfigs).forEach(badge => {
-            if (data.badges[badge]) {
-                content += badgeConfigs[badge];
-            }
-        });
+        const selectedBadges = Object.keys(badgeConfigs)
+            .filter(badge => data.badges[badge])
+            .map(badge => badgeConfigs[badge]);
 
-        return content + '</p>\n\n';
+        if (selectedBadges.length === 0) return '';
+
+        return `<p align="center">\n  ${selectedBadges.join(' ')}\n</p>\n\n`;
     }
 
     buildTechnologyBadges(data) {
         if (!this.hasTechnologies(data.technologies)) return '';
 
-        let content = '<p align="center">';
-
         const techBadges = {
             html: '<a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"></a>',
-            css: '<a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"></a>',
+            css: '<a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css&logoColor=white" alt="CSS3"></a>',
             js: '<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"></a>',
             typescript: '<a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a>',
             java: this.getJavaBadge(data.javaVersion),
@@ -357,17 +356,22 @@ class ReadmeGenerator {
             tkinter: '<a href="https://docs.python.org/3/library/tkinter.html"><img src="https://img.shields.io/badge/Tkinter-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Tkinter"></a>',
             jsx: '<a href="#"><img src="https://img.shields.io/badge/JSX-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="JSX"></a>',
             tsx: '<a href="#"><img src="https://img.shields.io/badge/TSX-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TSX"></a>',
-            windowsForms: '<a href="#"><img src="https://img.shields.io/badge/Windows_Forms-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Windows Forms"></a>'
+            windowsForms: '<a href="#"><img src="https://img.shields.io/badge/Windows_Forms-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Windows Forms"></a>',
+            scss: '<a href="https://sass-lang.com/"><img src="https://img.shields.io/badge/SCSS%2FSASS-CC6699?style=for-the-badge&logo=sass&logoColor=white" alt="SCSS"></a>',
+            postCss: '<a href="https://postcss.org/"><img src="https://img.shields.io/badge/PostCSS-DD3A0A?style=for-the-badge&logo=postcss&logoColor=white" alt="PostCSS"></a>'
         };
+
+        const selectedTechBadges = [];
 
         Object.keys(techBadges).forEach(tech => {
             if (data.technologies[tech]) {
-                content += techBadges[tech];
+                selectedTechBadges.push(techBadges[tech]);
             }
         });
 
-        content += `<a href="#"><img src="https://img.shields.io/badge/Size-${data.projectSize}-green?style=for-the-badge" alt="Size"></a>`;
-        return content + '</p>\n\n';
+        selectedTechBadges.push(`<a href="#"><img src="https://img.shields.io/badge/Size-${data.projectSize}-green?style=for-the-badge" alt="Size"></a>`);
+
+        return `<p align="center">\n  ${selectedTechBadges.join(' ')}\n</p>\n\n`;
     }
 
     buildTableOfContents(data) {
@@ -454,7 +458,9 @@ class ReadmeGenerator {
             tkinter: '**Tkinter** for Python GUI applications',
             jsx: '**JSX** for React component syntax',
             tsx: '**TSX** for TypeScript React components',
-            windowsForms: '**Windows Forms** for desktop applications'
+            windowsForms: '**Windows Forms** for desktop applications',
+            scss: '**SCSS** for styling with variables and nesting',
+            postcss: '**PostCSS** for transforming CSS with plugins'
         };
 
         Object.keys(techNames).forEach(tech => {
@@ -669,6 +675,12 @@ class ReadmeGenerator {
                     html += `<h1>${this.processInlineMarkdown(line.substring(2))}</h1>\n`;
                 } else if (line.trim() === '') {
                     html += '\n';
+                } else if (line.includes('<p align="center">')) {
+                    html += `${line}\n`;
+                } else if (line.includes('</p>') && html.includes('<p align="center">')) {
+                    html += `${line}\n`;
+                } else if (line.includes('<a href=') && html.includes('<p align="center">') && !html.includes('</p>')) {
+                    html += `${line}\n`;
                 } else {
                     html += `<p>${this.processInlineMarkdown(line)}</p>\n`;
                 }
